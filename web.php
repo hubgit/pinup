@@ -33,7 +33,7 @@ switch ($_SERVER['REQUEST_METHOD']) {
 
 	case 'DELETE':
 		$file = file_from_path($_GET['path']);
-		$data = date_from_file($file);
+		$data = data_from_file($file);
 		// TODO: set $data['deleted'] timestamp?
 		rename($file . '.json', $file . '.deleted.json');
 		rename($file . '.html', $file . '.deleted.html');
