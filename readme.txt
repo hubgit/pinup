@@ -1,33 +1,21 @@
-TODO: add setup to Berksfile/cookbooks
-
 ## Setup
 
-sudo gem install berkshelf
+	install virtualbox
+	install vagrant
 
-berks install
+	vagrant plugin install vagrant-vbguest
+	vagrant init
+	vagrant up
+	vagrant provision
 
-install virtualbox
-install vagrant
+	vagrant ssh
+	sudo nano /etc/apache2/sites-available/default
 
-vagrant plugin install vagrant-vbguest
-vagrant plugin install vagrant-berkshelf
-vagrant init
-vagrant up
-vagrant provision
+	    <VirtualHost *:80>
+	        DocumentRoot /var/www/web
+	        <Directory /var/www/web/>
+	            AllowOverride All
+	        </Directory>
+	    </VirtualHost>
 
-vagrant ssh
-sudo apt-get update
-sudo apt-get install libapache2-mod-php5 php5-uuid
-sudo a2enmod actions
-sudo a2enmod autoindex
-
-/etc/apache2/sites-available/default:
-
-    <VirtualHost *:80>
-        DocumentRoot /vagrant/web
-        <Directory /vagrant/web/>
-            AllowOverride All
-        </Directory>
-    </VirtualHost>
-
-sudo service apache2 restart
+	sudo service apache2 restart
